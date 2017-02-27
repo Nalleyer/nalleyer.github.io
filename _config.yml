@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title:
 subtitle:
 description:
-author: John Doe
+author:
 language:
 timezone:
 
@@ -63,10 +63,48 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-#theme: landscape
-theme: clean_blog
+# theme: landscape
+theme: typescript
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: https://github.com/Nalleyer/nalleyer.github.io.git
+  branch: master
+
+
+# Generator json content
+jsonContent:
+  meta: false
+  keywords: false
+  pages:
+    title: true
+    slug: false
+    date: false
+    updated: false
+    comments: false
+    path: false
+    link: false
+    permalink: true
+    excerpt: false
+    keywords: false
+    text: true
+    raw: false
+    content: false
+  posts:
+    title: true
+    slug: false
+    date: false
+    updated: false
+    comments: false
+    path: false
+    link: false
+    permalink: true
+    excerpt: false
+    keywords: false
+    text: true
+    raw: false
+    content: false
+    categories: true
+    tags: false
