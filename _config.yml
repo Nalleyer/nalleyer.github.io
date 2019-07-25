@@ -73,7 +73,7 @@ theme: typescript
 deploy:
   type: git
   repo: https://github.com/Nalleyer/nalleyer.github.io.git
-  branch: gh-pages
+  branch: master
 
 
 # Generator json content
