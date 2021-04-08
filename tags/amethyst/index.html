@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Tag: amethyst | 劣等技术</title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="劣等技术">
+<meta property="og:url" content="nalleyer.github.io/tags/amethyst/index.html">
+<meta property="og:site_name" content="劣等技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="劣等技术">
+  
+  
+
+	<script src="https://use.typekit.net/eyf3hir.js"></script>
+  <script>try{Typekit.load({ async: false });}catch(e){}</script>
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+
+  <script>setLoadingBarProgress(20)</script>
+  
+  <div id="site-wrapper">
+    
+    <header id="header">
+	<div id="header-wrapper" class="clearfix">
+		<a id="logo" href="/">
+			<img src="/images/logo.png" />
+			<span id="site-desc">
+			  are you OK ?
+      </span>
+		</a>
+		<button id="site-nav-switch">
+	    <span class="icon icon-menu"></span>
+	  </button>
+	</div>
+	<aside id="site-menu">
+  	<nav>
+  		
+        <a href="/about" class="nav-about nav">
+          About
+        </a>
+      
+        <a href="/archives" class="nav-archives nav">
+          Archives
+        </a>
+      
+    </nav>
+	</aside>
+</header>
+    <script>setLoadingBarProgress(40);</script>
+    
+    <main id="main" role="main">
+      
+	<section class="page-header tag">
+    <h1>- <span>amethyst</span> -</h1>
+  </section>
+
+
+
+
+
+
+<section class="post-list">
+	
+    <article class="post ">
+
+  
+  <h2 class="title">
+    <a href="/2019/07/25/amethyst-0/">
+      Amethyst引擎初见
+    </a>
+  </h2>
+  
+  <time>
+    Jul 25, 2019
+  </time>
+  <section class="content">
+	  <h1 id="这是个啥"><a href="#这是个啥" class="headerlink" title="这是个啥"></a>这是个啥</h1><p><a href="https://amethyst.rs/" target="_blank" rel="external">Amethyst</a>是一个游戏引擎。</p>
+<p>嗯？又一个游戏引擎？这个世界上最不缺的就是游戏引擎了，到网上随便一搜，你会发现随便一个阿猫阿狗都在做引擎（当然他们都是厉害的阿猫阿狗），那为什么要专门提一下Amethyst呢？</p>
+<p>游戏引擎的选择需要考虑很多因素，包括价格，语言，性能，官方支持情况，易用性，等等。不同的需求会产生不同的选择。<br>我只说一下我为什么会关注Amethyst。</p>
+<h2 id="rust"><a href="#rust" class="headerlink" title="rust"></a>rust</h2><p>核心的原因在于它是用rust写成，并且能够使用rust直接调用的。</p>
+<p><a href="https://www.rust-lang.org/" target="_blank" rel="external">rust</a>是一门高效，安全而且很有生产力的语言。它还比较新，但是已经表现出惊人的实力，正在迅速渗透到各个领域。</p>
+<p>我在18年开始关注rust并开始学习，为了能更好更深入地掌握这门技术，我决定尽量把所有的事情都用rust来做，放弃手上在用的其他语言。</p>
+<h2 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h2><p>另一方面，18年我关注了一个游戏引擎叫<a href="https://godotengine.org/" target="_blank" rel="external">godot</a>。这个小巧又免费的引擎也算是个杰作，之前我都在学习它，并且在上面写了一些demo，也算是入了门。</p>
+<p>不过，godot的开发模式是，使用它提供的精美小巧的编辑器，并且写一门叫做<code>GDScript</code>的专用语言。<br>平心而论，编辑器和语言等等都设计得非常非常好。看得出来他们是认真为开发者考虑，把一些常用的功能都做得很方便了。并且还在不断拓展。通过它的<a href="https://godotengine.org/article/dlscript-here" target="_blank" rel="external">GDNative</a>，也能用c++，rust之类的语言来写代码，来解决性能瓶颈等等。</p>
+<p>但是，就是这么一个小小的但是，我使用它的过程中，总缺少那么一点，怎么说呢，愉悦。对，愉悦！</p>
+<h2 id="合二为一的动机"><a href="#合二为一的动机" class="headerlink" title="合二为一的动机"></a>合二为一的动机</h2><p>用简单的方法解决复杂的事情本是最好的路子，但是现在在godot里面操作节点已经违背了我坚持rust的方针。这矛盾撞击的声音不断在脑子里面回响，搞得我心神不宁。</p>
+<p>于是我打开了<a href="http://arewegameyet.com/categories/engines/" target="_blank" rel="external">arewegameyet</a>，开始选择rust的引擎，走上这条不归路（其实可以归）</p>
+<h1 id="它有啥吊的"><a href="#它有啥吊的" class="headerlink" title="它有啥吊的"></a>它有啥吊的</h1><p>回顾<a href="http://arewegameyet.com/categories/engines/" target="_blank" rel="external">上一个链接</a>，其中的网页列举了rust生态中当下的一些游戏引擎。如果数一下星星数，能发现数量最多的是piston，其次就是amethyst和ggez不相上下。</p>
+<p>当时我看这个网页的时候，鬼使神差地忽略了piston（或许下期调研一下piston再补充说明一下），直接开始比较ggez和amethyst。</p>
+<p>这两个的区别比较明显，ggez主打简单快速，amethyst明显更加庞大。</p>
+<p>不过说实话我没有实际尝试过ggez，只看过其官网给出的简单例子。上面的区别也是我浅薄的总结。如果你有详细的信息，欢迎补充说明。</p>
+<p>amethyst从结构上看就给人一种严谨的感觉，让我觉得他们这群人是真的要干大事的。</p>
+<p>它集成了ecs模式<a href="https://slide-rs.github.io/specs/" target="_blank" rel="external">specs</a>，基于<a href="https://github.com/gfx-rs/gfx" target="_blank" rel="external">gfx-hal</a>搭建了自己的渲染系统<a href="https://github.com/amethyst/rendy" target="_blank" rel="external">rendy</a>，做了一套prefab功能。还撰写了详细的文档。</p>
+<p>虽然我还没有认真对比研究它的基础设施于其他可替代的技术的优势，不过简单看还是很厉害的：specs提供了免费并行的高效ecs；gfx-hal支持vulkan，metal，DirectX11-12，OpenGL2.1/ES2+，支持2d和3d游戏。</p>
+<p>同时，观察它的引用和依赖关系，并非是把一堆东西简单地组合在一起，而是自己开发了非常多的东西，把这些基础设施融入到自身来。</p>
+<h1 id="使用经历和感受"><a href="#使用经历和感受" class="headerlink" title="使用经历和感受"></a>使用经历和感受</h1><p>吹了那么多，其实客观上它还只是开荒阶段。从它的<a href="https://amethyst.rs/roadmap" target="_blank" rel="external">roadmap</a>可以看出，很多功能还在计划中。比如安装和ios要到年底才支持。</p>
+<p>不过我想，等我用得滚瓜烂熟的时候，它应该也发展得差不多了……</p>
+<p>下面列举一些感受</p>
+<h2 id="难学"><a href="#难学" class="headerlink" title="难学"></a>难学</h2><p>rust本身的学习曲线已经够陡了，差不多一年了我才能够舒服地使用。amethyst的曲线也比较陡。第一个主要的阻碍应该就是specs的ecs了。</p>
+<p>要融入它就得接受它的架构，整个逻辑不能简单地一个主循环搞定。然后就被迫开始熟悉那堆概念——<code>World</code>,<code>Component</code>,<code>System</code>,<code>Entity</code>,<code>Storage</code>,<code>Resource</code>…</p>
+<p>另一个槽点是hello world足够复杂。用它的cli工具，new出来的新工程，长这个样子：</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> amethyst::&#123;</div><div class="line">    core::transform::TransformBundle,</div><div class="line">    ecs::prelude::&#123;ReadExpect, Resources, SystemData&#125;,</div><div class="line">    prelude::*,</div><div class="line">    renderer::&#123;</div><div class="line">        pass::DrawShadedDesc,</div><div class="line">        rendy::&#123;</div><div class="line">            factory::Factory,</div><div class="line">            graph::&#123;</div><div class="line">                render::&#123;RenderGroupDesc, SubpassBuilder&#125;,</div><div class="line">                GraphBuilder,</div><div class="line">            &#125;,</div><div class="line">            hal::&#123;format::Format, image&#125;,</div><div class="line">        &#125;,</div><div class="line">        types::DefaultBackend,</div><div class="line">        GraphCreator, RenderingSystem,</div><div class="line">    &#125;,</div><div class="line">    utils::application_root_dir,</div><div class="line">    window::&#123;ScreenDimensions, Window, WindowBundle&#125;,</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">MyState</span></span>;</div><div class="line"></div><div class="line"><span class="keyword">impl</span> SimpleState <span class="keyword">for</span> MyState &#123;</div><div class="line">    <span class="function"><span class="keyword">fn</span> <span class="title">on_start</span></span>(&amp;<span class="keyword">mut</span> <span class="keyword">self</span>, _data: StateData&lt;<span class="symbol">'_</span>, GameData&lt;<span class="symbol">'_</span>, <span class="symbol">'_</span>&gt;&gt;) &#123;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">fn</span> <span class="title">main</span></span>() -&gt; amethyst::<span class="built_in">Result</span>&lt;()&gt; &#123;</div><div class="line">    amethyst::start_logger(<span class="built_in">Default</span>::<span class="keyword">default</span>());</div><div class="line"></div><div class="line">    <span class="keyword">let</span> app_root = application_root_dir()?;</div><div class="line"></div><div class="line">    <span class="keyword">let</span> resources_dir = app_root.join(<span class="string">"resources"</span>);</div><div class="line">    <span class="keyword">let</span> display_config_path = resources_dir.join(<span class="string">"display_config.ron"</span>);</div><div class="line"></div><div class="line">    <span class="keyword">let</span> game_data = GameDataBuilder::<span class="keyword">default</span>()</div><div class="line">        .with_bundle(WindowBundle::from_config_path(display_config_path))?</div><div class="line">        .with_bundle(TransformBundle::new())?</div><div class="line">        .with_thread_local(RenderingSystem::&lt;DefaultBackend, _&gt;::new(</div><div class="line">            RenderingGraph::<span class="keyword">default</span>(),</div><div class="line">        ));</div><div class="line"></div><div class="line">    <span class="keyword">let</span> <span class="keyword">mut</span> game = Application::new(resources_dir, MyState, game_data)?;</div><div class="line">    game.run();</div><div class="line"></div><div class="line">    <span class="literal">Ok</span>(())</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">#[derive(Default)]</span></div><div class="line"><span class="class"><span class="keyword">struct</span> <span class="title">RenderingGraph</span></span> &#123;</div><div class="line">    dimensions: <span class="built_in">Option</span>&lt;ScreenDimensions&gt;,</div><div class="line">    surface_format: <span class="built_in">Option</span>&lt;Format&gt;,</div><div class="line">    dirty: <span class="keyword">bool</span>,</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">impl</span> GraphCreator&lt;DefaultBackend&gt; <span class="keyword">for</span> RenderingGraph &#123;</div><div class="line">    <span class="function"><span class="keyword">fn</span> <span class="title">rebuild</span></span>(&amp;<span class="keyword">mut</span> <span class="keyword">self</span>, res: &amp;Resources) -&gt; <span class="keyword">bool</span> &#123;</div><div class="line">        <span class="comment">// Rebuild when dimensions change, but wait until at least two frames have the same.</span></div><div class="line">        <span class="keyword">let</span> new_dimensions = res.try_fetch::&lt;ScreenDimensions&gt;();</div><div class="line">        <span class="keyword">use</span> std::ops::Deref;</div><div class="line">        <span class="keyword">if</span> <span class="keyword">self</span>.dimensions.as_ref() != new_dimensions.as_ref().map(|d| d.deref()) &#123;</div><div class="line">            <span class="keyword">self</span>.dirty = <span class="literal">true</span>;</div><div class="line">            <span class="keyword">self</span>.dimensions = new_dimensions.map(|d| d.clone());</div><div class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">self</span>.dirty</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">fn</span> <span class="title">builder</span></span>(</div><div class="line">        &amp;<span class="keyword">mut</span> <span class="keyword">self</span>,</div><div class="line">        factory: &amp;<span class="keyword">mut</span> Factory&lt;DefaultBackend&gt;,</div><div class="line">        res: &amp;Resources,</div><div class="line">    ) -&gt; GraphBuilder&lt;DefaultBackend, Resources&gt; &#123;</div><div class="line">        <span class="keyword">use</span> amethyst::renderer::rendy::&#123;</div><div class="line">            graph::present::PresentNode,</div><div class="line">            hal::command::&#123;ClearDepthStencil, ClearValue&#125;,</div><div class="line">        &#125;;</div><div class="line"></div><div class="line">        <span class="keyword">self</span>.dirty = <span class="literal">false</span>;</div><div class="line">        <span class="keyword">let</span> window = &lt;ReadExpect&lt;<span class="symbol">'_</span>, Window&gt;&gt;::fetch(res);</div><div class="line">        <span class="keyword">let</span> surface = factory.create_surface(&amp;window);</div><div class="line">        <span class="comment">// cache surface format to speed things up</span></div><div class="line">        <span class="keyword">let</span> surface_format = *<span class="keyword">self</span></div><div class="line">            .surface_format</div><div class="line">            .get_or_insert_with(|| factory.get_surface_format(&amp;surface));</div><div class="line">        <span class="keyword">let</span> dimensions = <span class="keyword">self</span>.dimensions.as_ref().unwrap();</div><div class="line">        <span class="keyword">let</span> window_kind =</div><div class="line">            image::Kind::D2(dimensions.width() <span class="keyword">as</span> <span class="keyword">u32</span>, dimensions.height() <span class="keyword">as</span> <span class="keyword">u32</span>, <span class="number">1</span>, <span class="number">1</span>);</div><div class="line"></div><div class="line">        <span class="keyword">let</span> <span class="keyword">mut</span> graph_builder = GraphBuilder::new();</div><div class="line">        <span class="keyword">let</span> color = graph_builder.create_image(</div><div class="line">            window_kind,</div><div class="line">            <span class="number">1</span>,</div><div class="line">            surface_format,</div><div class="line">            <span class="literal">Some</span>(ClearValue::Color([<span class="number">0.34</span>, <span class="number">0.36</span>, <span class="number">0.52</span>, <span class="number">1.0</span>].into())),</div><div class="line">        );</div><div class="line"></div><div class="line">        <span class="keyword">let</span> depth = graph_builder.create_image(</div><div class="line">            window_kind,</div><div class="line">            <span class="number">1</span>,</div><div class="line">            Format::D32Sfloat,</div><div class="line">            <span class="literal">Some</span>(ClearValue::DepthStencil(ClearDepthStencil(<span class="number">1.0</span>, <span class="number">0</span>))),</div><div class="line">        );</div><div class="line"></div><div class="line">        <span class="keyword">let</span> opaque = graph_builder.add_node(</div><div class="line">            SubpassBuilder::new()</div><div class="line">                .with_group(DrawShadedDesc::new().builder())</div><div class="line">                .with_color(color)</div><div class="line">                .with_depth_stencil(depth)</div><div class="line">                .into_pass(),</div><div class="line">        );</div><div class="line"></div><div class="line">        <span class="keyword">let</span> _present = graph_builder</div><div class="line">            .add_node(PresentNode::builder(factory, surface, color).with_dependency(opaque));</div><div class="line"></div><div class="line">        graph_builder</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>虽然说这个是hello world有失公正，但是它的功能又比较简单，还不能算脚手架，有点不伦不类。</p>
+<p>观察一下可以发现，里面多数内容都在做渲染方面的初始化，甚至还没搞ecs部分。不过这就已经够劝退新人的了。</p>
+<h2 id="编译速度"><a href="#编译速度" class="headerlink" title="编译速度"></a>编译速度</h2><p>rust编译是真的慢（官方在不断改进，今年已经比去年快了50%了），特别这种依赖很多的大工程，初次编译慢到怀疑人生。</p>
+<p>之后的小修改编译也有10s级别，我的电脑可是8700k。</p>
+<p>但是反回来说几句公道话，编辑器中rls插件倒可以在1s量级给出错误提示或告诉我能过编译。不老开游戏的话，开发体验还行。</p>
+<h2 id="错误提示"><a href="#错误提示" class="headerlink" title="错误提示"></a>错误提示</h2><p>作为初学者，最恼人的错误就是开游戏马上panic，然后它给出的提示只是简单的“有资源没初始化”，然后告诉我，要看详细信息，请开nightly（rust区别于stable的较新版本）功能。</p>
+<p>开完nightly，编辑器中的rls又编译不过了，倒腾过一阵也没倒腾成功。最后发现一个粗暴的小办法。</p>
+<figure class="highlight toml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># ...</span></div><div class="line"><span class="section">[dependencies]</span></div><div class="line"><span class="comment"># ...</span></div><div class="line"></div><div class="line"><span class="comment">#####</span></div><div class="line"><span class="comment"># shred = &#123;version = "*", features = ["nightly"]&#125;</span></div><div class="line"><span class="comment">##### 看上面这行</span></div><div class="line"></div><div class="line"><span class="comment"># ...</span></div></pre></td></tr></table></figure>
+<p>平时在编辑器里注释掉<code>shred</code>的nightly功能，编译也用普通编译，只有出了panic不知道怎么查的时候才取消注释一下。</p>
+<p>勉强也能苟住。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>这篇就吐槽这么多吧。总结一下。</p>
+<h3 id="TL-DL"><a href="#TL-DL" class="headerlink" title="TL;DL"></a>TL;DL</h3><p>博主专(d)注(d)rust，又要做游戏，根据个人对各项目的未来判断，最终选了amethyst，跳入了无底大坑。</p>
+<p>下一篇或许看一下piston，或许讲一下amethyst的简单项目代码。</p>
+<p>咕咕咕</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+
+    
+    
+    
+	  <div class="tags">
+      <a class="tag-link" href="/tags/amethyst/">amethyst</a><a class="tag-link" href="/tags/engine/">engine</a><a class="tag-link" href="/tags/rust/">rust</a>
+	  </div>
+    
+
+  </section>
+</article>
+  
+</section>
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </main>
+    
+    <footer id="footer" class="clearfix">
+  
+  
+	<div class="search">
+	  <form name="searchform" id="searchform" class="u-search-form">
+	    <input type="text" id="searchinput" class="u-search-input" placeholder="Looking for something?" />
+	    <button type="submit" id="u-search-btn-submit" class="u-search-btn-submit">
+	      <span class="icon icon-search"></span>
+	    </button>
+	  </form>
+	</div>
+	
+
+	<div class="social-wrapper">
+  	
+      
+        <a href="https://github.com/Nalleyer" class="social github"
+          target="_blank" rel="external">
+          <span class="icon icon-github"></span>
+        </a>
+      
+        <a href="https://blog.remi.moe/rtr4_zh" class="social book"
+          target="_blank" rel="external">
+          <span class="icon icon-book"></span>
+        </a>
+      
+    
+  </div>
+  
+  <div>Theme <span class="codename">Typescript</span> designed by <a href="http://rakugaki.me/" target="_blank">Art Chen</a>.</div>
+  <div>&copy; <a href="/">劣等技术</a></div>
+  
+</footer>
+
+
+    <script>setLoadingBarProgress(80);</script>
+    
+  </div>
+
+  
+
+
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
+
+<script src="/js/jquery.fitvids.js"></script>
+<script>
+	var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+	var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+	var ALGOLIA_API_KEY = "";
+	var ALGOLIA_APP_ID = "";
+	var ALGOLIA_INDEX_NAME = "";
+  var AZURE_SERVICE_NAME = "";
+  var AZURE_INDEX_NAME = "";
+  var AZURE_QUERY_KEY = "";
+  var BAIDU_API_ID = "";
+  var SEARCH_SERVICE = "baidu";
+</script>
+<script src="/js/search.js"></script>
+<script src="/js/app.js"></script>
+
+
+  <script>setLoadingBarProgress(100);</script>
+  
+</body>
+</html>

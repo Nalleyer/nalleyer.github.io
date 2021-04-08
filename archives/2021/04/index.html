@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  
+  <title>Archives: 2021/4 | 劣等技术</title>
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="劣等技术">
+<meta property="og:url" content="nalleyer.github.io/archives/2021/04/index.html">
+<meta property="og:site_name" content="劣等技术">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="劣等技术">
+  
+  
+
+	<script src="https://use.typekit.net/eyf3hir.js"></script>
+  <script>try{Typekit.load({ async: false });}catch(e){}</script>
+  <link rel="stylesheet" href="/style.css">
+  <script>
+    function setLoadingBarProgress(num) {
+      document.getElementById('loading-bar').style.width=num+"%";
+    }
+  </script>
+  
+
+</head>
+
+<body>
+  
+  <div id="loading-bar-wrapper">
+  <div id="loading-bar"></div>
+</div>
+
+  <script>setLoadingBarProgress(20)</script>
+  
+  <div id="site-wrapper">
+    
+    <header id="header">
+	<div id="header-wrapper" class="clearfix">
+		<a id="logo" href="/">
+			<img src="/images/logo.png" />
+			<span id="site-desc">
+			  are you OK ?
+      </span>
+		</a>
+		<button id="site-nav-switch">
+	    <span class="icon icon-menu"></span>
+	  </button>
+	</div>
+	<aside id="site-menu">
+  	<nav>
+  		
+        <a href="/about" class="nav-about nav">
+          About
+        </a>
+      
+        <a href="/archives" class="nav-archives nav">
+          Archives
+        </a>
+      
+    </nav>
+	</aside>
+</header>
+    <script>setLoadingBarProgress(40);</script>
+    
+    <main id="main" role="main">
+      
+	
+
+
+	<section class="page-header archive">
+    <h1>- <span>2021.4</span> -</h1>
+  </section>
+
+
+
+
+<section class="post-list">
+	
+    <article class="post ">
+
+  
+  <h2 class="title">
+    <a href="/2021/04/08/perl6-grammar/">
+      perl6笔记系列： grammar
+    </a>
+  </h2>
+  
+  <time>
+    Apr 8, 2021
+  </time>
+  <section class="content">
+	  <blockquote>
+<p>prel6笔记系列记录我学习perl6过程中学到的一些 <strong>要点</strong>， 笔记系列不强调理论严谨，只求容易理解。</p>
+<p>必要的基础知识将列于笔记的开头处，并附链接（我知道的话）</p>
+</blockquote>
+<h2 id="依赖知识"><a href="#依赖知识" class="headerlink" title="依赖知识"></a>依赖知识</h2><ul>
+<li>perl6 <a href="https://docs.perl6.org/language/classtut" target="_blank" rel="external">面向对象</a></li>
+<li>perl6 <a href="https://docs.perl6.org/language/regexes" target="_blank" rel="external">regex / token / rule</a></li>
+</ul>
+<h2 id="动机"><a href="#动机" class="headerlink" title="动机"></a>动机</h2><p>有时我们需要解析文本，首先想到的就是使用正则。但是，perl6中提供了更强大的工具：grammar。使用grammar可以以及简介（几乎接近文法或范式）的方式书写程序，轻松地解析文本。</p>
+<h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><p>grammar一般需要两部分： grammar和action。<br>grammar负责匹配和解析，action负责使用匹配到的文本来构建数据结构。</p>
+<p>接下来举一个简单的例子： 只有加法的表达式。规范一点的写法是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Expr -&gt; Expr + Var</div><div class="line">    | Var</div></pre></td></tr></table></figure>
+<h2 id="grammar"><a href="#grammar" class="headerlink" title="grammar"></a>grammar</h2><p>写成grammar可以是这样的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">grammar ExprAdd &#123;</div><div class="line">    token TOP  &#123; ^ &lt;Expr&gt; $ &#125;;</div><div class="line">    token Expr &#123; [ &lt;Expr&gt; \s* &apos;+&apos; \s* &lt;Var&gt; ] | &lt;Var&gt; &#125;; </div><div class="line">    token Var  &#123; &lt;alpha&gt; &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>可以这样运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">my $s = &quot;a + b + c&quot;;</div><div class="line">say ExprAdd.parse($s);</div></pre></td></tr></table></figure></p>
+<p>当然这里会得到Nil。使用一下Debug工具：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">use Grammar::Debugger;</div></pre></td></tr></table></figure></p>
+<p>容易发现出现了<a href="https://en.wikipedia.org/wiki/Left_recursion" target="_blank" rel="external">左递归</a>，但这是文法的问题，可以容易地解决：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">grammar ExprAdd &#123;</div><div class="line">    token TOP  &#123; ^ &lt;Expr&gt; $ &#125;;</div><div class="line">    token Expr &#123; [ &lt;Var&gt; \s* &apos;+&apos; \s* &lt;Expr&gt; ] | &lt;Var&gt; &#125;; </div><div class="line">    token Var  &#123; &lt;alpha&gt; &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行程序可以看到这样的结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">｢a + b + c｣</div><div class="line"> Expr =&gt; ｢a + b + c｣</div><div class="line">  Var =&gt; ｢a｣</div><div class="line">   alpha =&gt; ｢a｣</div><div class="line">  Expr =&gt; ｢b + c｣</div><div class="line">   Var =&gt; ｢b｣</div><div class="line">    alpha =&gt; ｢b｣</div><div class="line">   Expr =&gt; ｢c｣</div><div class="line">    Var =&gt; ｢c｣</div><div class="line">     alpha =&gt; ｢c｣</div></pre></td></tr></table></figure></p>
+<p>这个结果显示了匹配的情况，但是这个结果没有什么实际用途。不过现在我们可以根据匹配结果做我们想要做的事了。</p>
+<p>接下来可以从匹配的结果做很多事，例如化简表达式，或者建立一个数据结构。不过一般先建立数据结构，再做别的工作比较优雅。</p>
+<p>建立数据结构（或直接干别的事）就是action的工作了。</p>
+<h2 id="action"><a href="#action" class="headerlink" title="action"></a>action</h2><p>action是一个类，它的每个方法的名字对应grammar的匹配项目（token,regex,rule）的名字，并且参数是固定的$/，这个参数的值是该项目匹配到的字符串。</p>
+<p>举例说明吧。假如我想把上面的表达式的变量存储到一个列表里。我可以这么写：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">class ExprAddAction0 &#123;</div><div class="line">    method TOP ($/) &#123; make $&lt;Expr&gt;.made; &#125;</div><div class="line"></div><div class="line">    method Expr ($/) &#123;</div><div class="line">        make [|$&lt;Var&gt;.made,|$&lt;Expr&gt;.made];</div><div class="line">    &#125;</div><div class="line">    method Var ($/) &#123;</div><div class="line">        make [$/.Str];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在parse的参数里加入这个acion：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">my $m = ExprAdd.parse($s, actions =&gt; ExprAddAction0.new);</div></pre></td></tr></table></figure></p>
+<p>先解释一下action的语法。我们在<code>token TOP</code>中使用了<code>&lt;Expr&gt;</code>，把问题丢给<code>token Expr</code>，所以action中我们做同样的事。<code>make</code>可以当作是必须书写的句子（详细见<a href="https://docs.perl6.org/type/Match#method_make" target="_blank" rel="external">官网</a>）。<code>$&lt;Expr&gt;</code>代表<code>TOP</code>中被<code>&lt;Expr&gt;</code>匹配到的字符串。<code>$&lt;Expr&gt;.made</code>代表这些内容被<code>method Expr</code>处理后的结果。</p>
+<p>再看<code>method Expr</code>， 它返回一个列表，第一个元素是<code>$&lt;Var&gt;.made</code>后面是展开的<code>$&lt;Expr&gt;.made</code>。这自然地形成了递归调用，生成匹配到的所有Var的列表。</p>
+<p><code>method Var</code>简单地返回匹配到的字符串。</p>
+<p>运行发现，列表的最后有一个Nil（<s>这很Haskell</s>），可以简单地在<code>method TOP</code>里使用列表操作去掉它，但这并不优雅。</p>
+<p>仔细查看action，可以发现，<code>token Expr</code>里面使用了<code>|</code>来进行选择，当匹配到<code>Var</code>时，就不存在<code>$&lt;Expr&gt;</code>这个变量，所以action里面必然有一个Nil。</p>
+<p>解决办法是把<code>token Expr</code>的两种情况拆开，并使用一个类似函数重载的方式书写，这样就可以为不同情况写不同的action了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">grammar ExprAdd &#123;                                                                               </div><div class="line">    token TOP  &#123; ^ &lt;Expr&gt; $ &#125;;                                                                  </div><div class="line">    proto token Expr &#123;*&#125;;</div><div class="line">          token Expr:sym&lt;just_a_var&gt; &#123; &lt;Var&gt; &#125;;     # &lt;-- here</div><div class="line">          token Expr:sym&lt;a_expression&gt; &#123; &lt;Expr0&gt; &#125;;     # &lt;-- here</div><div class="line">    token Expr0 &#123; &lt;Var&gt; \s* &apos;+&apos; \s* &lt;Expr&gt; &#125;;</div><div class="line">    token Var  &#123; &lt;alpha&gt; &#125;;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class ExprAddAction0 &#123;</div><div class="line">    method TOP ($/) &#123; make $&lt;Expr&gt;.made; &#125;</div><div class="line"></div><div class="line">    method Expr:sym&lt;a_expression&gt; ($/) &#123; make $&lt;Expr0&gt;.made; &#125;     # &lt;-- here</div><div class="line">    method Expr:sym&lt;just_a_var&gt; ($/) &#123; make $&lt;Var&gt;.made; &#125;     # &lt;-- here</div><div class="line">    method Expr0 ($/) &#123; make [|$&lt;Var&gt;.made,|$&lt;Expr&gt;.made]; &#125;</div><div class="line">    method Var ($/) &#123; make [$/.Str]; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>注意sym后面的尖括号里的内容只是重载函数的标识符，用于区分不同的重载函数。与匹配到的内容无关，这里我专门写了不同的文字来说明这个问题。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>perl6的grammar很强大，写起来很爽很简单。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+
+    
+    
+    
+	  <div class="tags">
+      <a class="tag-link" href="/tags/note/">note</a><a class="tag-link" href="/tags/perl6/">perl6</a>
+	  </div>
+    
+
+  </section>
+</article>
+  
+</section>
+
+
+
+      <script>setLoadingBarProgress(60);</script>
+    </main>
+    
+    <footer id="footer" class="clearfix">
+  
+  
+	<div class="search">
+	  <form name="searchform" id="searchform" class="u-search-form">
+	    <input type="text" id="searchinput" class="u-search-input" placeholder="Looking for something?" />
+	    <button type="submit" id="u-search-btn-submit" class="u-search-btn-submit">
+	      <span class="icon icon-search"></span>
+	    </button>
+	  </form>
+	</div>
+	
+
+	<div class="social-wrapper">
+  	
+      
+        <a href="https://github.com/Nalleyer" class="social github"
+          target="_blank" rel="external">
+          <span class="icon icon-github"></span>
+        </a>
+      
+        <a href="https://blog.remi.moe/rtr4_zh" class="social book"
+          target="_blank" rel="external">
+          <span class="icon icon-book"></span>
+        </a>
+      
+    
+  </div>
+  
+  <div>Theme <span class="codename">Typescript</span> designed by <a href="http://rakugaki.me/" target="_blank">Art Chen</a>.</div>
+  <div>&copy; <a href="/">劣等技术</a></div>
+  
+</footer>
+
+
+    <script>setLoadingBarProgress(80);</script>
+    
+  </div>
+
+  
+
+
+
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script>window.jQuery || document.write('<script src="/js/jquery.min.js"><\/script>')</script>
+
+<script src="/js/jquery.fitvids.js"></script>
+<script>
+	var GOOGLE_CUSTOM_SEARCH_API_KEY = "";
+	var GOOGLE_CUSTOM_SEARCH_ENGINE_ID = "";
+	var ALGOLIA_API_KEY = "";
+	var ALGOLIA_APP_ID = "";
+	var ALGOLIA_INDEX_NAME = "";
+  var AZURE_SERVICE_NAME = "";
+  var AZURE_INDEX_NAME = "";
+  var AZURE_QUERY_KEY = "";
+  var BAIDU_API_ID = "";
+  var SEARCH_SERVICE = "baidu";
+</script>
+<script src="/js/search.js"></script>
+<script src="/js/app.js"></script>
+
+
+  <script>setLoadingBarProgress(100);</script>
+  
+</body>
+</html>
