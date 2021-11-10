@@ -4,43 +4,18 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   
-  <title>perl6笔记系列： grammar | 劣等技术</title>
+  <title>Archives: 2021/11 | 劣等技术</title>
   <meta name="description" content="" />
   <meta name="keywords" content="" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="prel6笔记系列记录我学习perl6过程中学到的一些 要点， 笔记系列不强调理论严谨，只求容易理解。
-必要的基础知识将列于笔记的开头处，并附链接（我知道的话）
-
-依赖知识
-perl6 面向对象
-perl6 regex / token / rule
-
-动机有时我们需要解析文本，首先想到的就是使用正则。但是，perl6中提供了更强大的工具：grammar。使用grammar可以以及简介（几乎接近文">
-<meta property="og:type" content="article">
-<meta property="og:title" content="perl6笔记系列： grammar">
-<meta property="og:url" content="nalleyer.github.io/2021/04/10/perl6-grammar/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="劣等技术">
+<meta property="og:url" content="nalleyer.github.io/archives/2021/11/index.html">
 <meta property="og:site_name" content="劣等技术">
-<meta property="og:description" content="prel6笔记系列记录我学习perl6过程中学到的一些 要点， 笔记系列不强调理论严谨，只求容易理解。
-必要的基础知识将列于笔记的开头处，并附链接（我知道的话）
-
-依赖知识
-perl6 面向对象
-perl6 regex / token / rule
-
-动机有时我们需要解析文本，首先想到的就是使用正则。但是，perl6中提供了更强大的工具：grammar。使用grammar可以以及简介（几乎接近文">
-<meta property="og:updated_time" content="2021-04-10T16:28:55.056Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="perl6笔记系列： grammar">
-<meta name="twitter:description" content="prel6笔记系列记录我学习perl6过程中学到的一些 要点， 笔记系列不强调理论严谨，只求容易理解。
-必要的基础知识将列于笔记的开头处，并附链接（我知道的话）
-
-依赖知识
-perl6 面向对象
-perl6 regex / token / rule
-
-动机有时我们需要解析文本，首先想到的就是使用正则。但是，perl6中提供了更强大的工具：grammar。使用grammar可以以及简介（几乎接近文">
+<meta name="twitter:title" content="劣等技术">
   
   
 
@@ -95,20 +70,56 @@ perl6 regex / token / rule
     <script>setLoadingBarProgress(40);</script>
     
     <main id="main" role="main">
-      <article id="post-perl6-grammar"
-  class="post article white-box article-type-post"
-  itemscope itemprop="blogPost">
-	<h2 class="title">
-  	<a href="/2021/04/10/perl6-grammar/">
-    	perl6笔记系列： grammar
+      
+	
+
+
+	<section class="page-header archive">
+    <h1>- <span>2021.11</span> -</h1>
+  </section>
+
+
+
+
+<section class="post-list">
+	
+    <article class="post ">
+
+  
+  <h2 class="title">
+    <a href="/2021/11/10/TEST-HREF/">
+      TEST_HREF
     </a>
   </h2>
-	<time>
-	  Apr 10, 2021
-	</time>
-	<section class="content">
-  	<div class="article-entry" itemprop="articleBody">
-    	<blockquote>
+  
+  <time>
+    Nov 10, 2021
+  </time>
+  <section class="content">
+	  <p>这是一个单纯的测试链接：<a href="wuxialink://content/someabc&amp;b=2333&amp;c=6666" target="_blank" rel="external">点我</a></p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+
+    
+    
+    
+
+  </section>
+</article>
+  
+    <article class="post ">
+
+  
+  <h2 class="title">
+    <a href="/2021/11/10/perl6-grammar/">
+      perl6笔记系列： grammar
+    </a>
+  </h2>
+  
+  <time>
+    Nov 10, 2021
+  </time>
+  <section class="content">
+	  <blockquote>
 <p>prel6笔记系列记录我学习perl6过程中学到的一些 <strong>要点</strong>， 笔记系列不强调理论严谨，只求容易理解。</p>
 <p>必要的基础知识将列于笔记的开头处，并附链接（我知道的话）</p>
 </blockquote>
@@ -142,16 +153,19 @@ perl6 regex / token / rule
 <p>注意sym后面的尖括号里的内容只是重载函数的标识符，用于区分不同的重载函数。与匹配到的内容无关，这里我专门写了不同的文字来说明这个问题。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>perl6的grammar很强大，写起来很爽很简单。</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
-  	</div>
 
-	  <div class="article-tags tags">
-		  
-        <a class="tag-link" href="/tags/note/">note</a><a class="tag-link" href="/tags/perl6/">perl6</a>
-      
+    
+    
+    
+	  <div class="tags">
+      <a class="tag-link" href="/tags/note/">note</a><a class="tag-link" href="/tags/perl6/">perl6</a>
 	  </div>
-	</section>
-</article>
+    
 
+  </section>
+</article>
+  
+</section>
 
 
 
